@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: navy;
+        }
+
+        .container {
+            background-color: yellowgreen;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 60px;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+            font-size: 35px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <label for="tempInput" style="font-size: 25px;">Enter Temperature (°C):</label><br><br>
+        <input type="text" id="tempInput"><br><br>
+        <button onclick="convertTemperature()">Convert</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const celsius = parseFloat(document.getElementById('tempInput').value);
+            if (isNaN(celsius)) {
+                alert('Please enter a valid temperature.');
+                return;
+            }
+
+            const fahrenheit = (celsius * 9/5) + 32;
+            const resultElement = document.getElementById('result');
+            resultElement.innerText = `Result: ${celsius}°C is equal to ${fahrenheit.toFixed(2)}°F`;
+        }
+    </script>
+</body>
+</html>
